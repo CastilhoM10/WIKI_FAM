@@ -1,0 +1,85 @@
+.guia-container {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: var(--color-card);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.guia-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.guia-container h2 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.guia-container button {
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.guia-container .perguntas {
+    margin-top: 20px;
+}
+
+.guia-container .pergunta {
+    margin-bottom: 20px;
+}
+
+.guia-container .pergunta p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.guia-container .quiz-buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.guia-container .quiz-buttons button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.guia-container .quiz-buttons button:hover{
+    background: var(--color-secundary);
+}
+
+.guia-container .resposta-correta {
+    color: green;
+    font-weight: bold;
+}
+
+.guia-container .resposta-feedback {
+    margin-top: 20px;
+}
+#iconquiz{
+    font-size: 30px;
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+#iconquiz:hover{
+    color: var(--color-red);
+    scale: 1.2;
+}

@@ -1,0 +1,90 @@
+.department-section {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background: var(--color-card);
+    border-radius: 10px;
+  }
+  
+  .filter-options {
+    margin-bottom: 20px;
+  }
+  
+  .filter-options select {
+    max-width: 100vh;
+    padding: 8px;
+    font-size: 16px;
+    background: var(--color-card);
+    border-radius: 10px;
+    border: 1px solid var(--color-boder);
+  }
+  
+  .department-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .department-list li {
+    margin-bottom: 10px;
+  }
+  
+  .department-list li button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .department-list li button:hover {
+    background-color: #0056b3;
+  }
+  
+  .department-details {
+    margin-top: 20px;
+    border: 1px solid var(--color-boder);
+    padding: 20px;
+  }
+  
+  .department-details h3 {
+    margin-top: 0;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    background: var(--color-card);
+    border: 1px solid var(--color-boder);
+  }
+  
+  .form-group textarea {
+    height: 100px;
+  }
+  
+  button[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #218838;
+  }

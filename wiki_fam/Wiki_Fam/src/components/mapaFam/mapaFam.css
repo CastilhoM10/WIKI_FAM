@@ -1,0 +1,174 @@
+.mapa-container {
+  max-width: 700px;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: var(--color-card);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blocos-container {
+  margin-bottom: 20px;
+  width: 100%;
+  background: var(--color-card);
+  border-radius: 10px;
+  border: 1px solid var(--color-boder);
+}
+
+.blocos-container h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.blocos-container ul {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que os itens quebrem para a próxima linha */
+  justify-content: center; /* Centralizar os itens horizontalmente */
+}
+
+.blocos-container ul li {
+  font-size: 14px;
+  background: var(--color-primary);
+  margin-right: 15px; /* Reduzir a margem entre os itens */
+  margin-bottom: 15px; /* Adicionar margem inferior para separar os itens verticalmente */
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: transform 0.5s ease; /* Corrigir propriedade de transição */
+}
+
+.blocos-container ul li:hover {
+  scale: 1.2;
+}
+
+.info {
+  text-align: center;
+}
+
+.info select {
+  background: var(--color-card);
+  border: 1px solid var(--color-boder);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-size: 16px;
+  padding: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.info select option {
+  font-size: 16px;
+}
+
+.info input {
+  border: 1px solid var(--color-boder);
+  border-radius: 10px;
+  padding: 5px;
+  color: #000;
+}
+
+.info button {
+  margin-left: 10px;
+}
+
+.bloco {
+  position: relative;
+  width: 100%; /* Agora o bloco ocupa toda a largura */
+  max-width: 700px; /* Limita a largura máxima do bloco */
+  height: auto; /* Altura automática */
+  border: 1px solid #ccc;
+  background: var(--color-card);
+  display: flex;
+  flex-wrap: wrap; /* Permite que as salas sejam exibidas em várias linhas */
+  margin-top: 15px;
+}
+
+.sala {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+  justify-content: center;
+  width: calc(20% - 20px); /* Define a largura de cada sala */
+  margin: 10px; /* Adiciona espaçamento entre as salas */
+  height: 100px; /* Altura das salas */
+  background: var(--color-card);
+  border: 1px solid var(--border-sala);
+  font-size: 12px;
+}
+
+.sala.encontrada {
+  background-color: #8e8e8e; /* Cor da sala encontrada */
+  transform: scale(1.2); /* Aumenta o tamanho da sala */
+}
+
+.marcacao {
+  position: absolute;
+  bottom: 55px; /* Ajuste conforme necessário */
+  left: 50%; /* Ajuste conforme necessário */
+  transform: translateX(-50%);
+}
+
+.marcacao #iconMapa {
+  font-size: 50px;
+  color: var(--color-red);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.marcacao #iconMapa:hover {
+  scale: 1.2;
+}
+
+.dica-sala {
+  position: absolute;
+  bottom: 5px; /* Ajuste conforme necessário */
+  left: 50%;
+  color: var(--text-color);
+  transform: translateX(-50%);
+  background: var(--color-card); /* Cor de fundo da dica */
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer; /* Altera o cursor ao passar sobre a dica */
+  transition: opacity 0.3s; /* Adiciona transição para a opacidade */
+  box-shadow: 5px 5px 10px 3px rgba(18, 18, 18, 0.57);
+}
+
+.dica-sala p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.dica-sala:hover {
+  opacity: 0.9; /* Altera a opacidade ao passar o mouse sobre a dica */
+}
+  
+ /* Estilos para telas menores, como tablets */
+@media (max-width: 768px) {
+  .bloco {
+    max-width: 500px; /* Ajusta a largura máxima do bloco */
+  }
+}
+
+/* Estilos para telas ainda menores, como smartphones */
+@media (max-width: 576px) {
+  .bloco {
+    max-width: 90%; /* Ajusta a largura máxima do bloco */
+    margin: 20px auto; /* Centraliza o bloco na tela */
+  }
+  .sala {
+    width: calc(25% - 10px); /* Define a largura das salas para ocupar 25% do contêiner */
+    margin: 5px; /* Reduz a margem entre as salas */
+    height: 80px; /* Reduz a altura das salas */
+    font-size: 10px; /* Reduz o tamanho da fonte */
+  }
+  .info button{
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+  .dica-sala{
+    margin-top: 200px;
+  }
+}

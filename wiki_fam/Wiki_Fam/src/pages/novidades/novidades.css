@@ -1,0 +1,74 @@
+.card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 50px;
+}
+.card-novidades{
+    width: 280px;
+    height: 360px;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    background: var(--color-card);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+}
+.card-novidades:hover{
+    transform: translateY(-20px);
+}
+.card-novidades::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    transition: 0.5s all ;
+    opacity: 0;
+}
+.card-novidades:hover:before{
+    opacity: 1;
+}
+.card-novidades img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+}
+.card-novidades .info{
+    position: relative;
+    z-index: 3;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s all ;
+}
+.card-novidades:hover .info{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.card-novidades .info h1{
+    margin: 0;
+    color: white;
+}
+.card-novidades .info p{
+    letter-spacing: 1px;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+.btn-primary:hover{
+    background: var(--color-secundary);
+    color: white;
+}
