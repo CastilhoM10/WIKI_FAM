@@ -96,8 +96,183 @@ app.get('/departamentos', (req, res) => {
   });
 });
 
+// Rotas para o ToDo List
 
-  
+// Rota para buscar todas as tarefas
+app.get('/todos', (req, res) => {
+  const sql = 'SELECT * FROM todo_list WHERE is_completed = FALSE';
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.error('Erro ao buscar as tarefas:', err);
+      res.status(500).json({ success: false, message: 'Erro ao buscar as tarefas.' });
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+// Rota para adicionar uma nova tarefa
+app.post('/todos', (req, res) => {
+  const { title, description, due_date } = req.body;
+  const sql = 'INSERT INTO todo_list (title, description, due_date, is_completed) VALUES (?, ?, ?, FALSE)';
+  con.query(sql, [title, description, due_date], (err, result) => {
+    if (err) {
+      console.error('Erro ao criar a tarefa:', err);
+      res.status(500).json({ success: false, message: 'Erro ao criar a tarefa.' });
+    } else {
+      const newTodo = {
+        id: result.insertId,
+        title,
+        description,
+        due_date,
+        is_completed: false
+      };
+      res.status(201).json(newTodo);
+    }
+  });
+});
+
+// Rota para finalizar uma tarefa
+app.put('/todos/:id/complete', (req, res) => {
+  const { id } = req.params;
+  const sql = 'UPDATE todo_list SET is_completed = TRUE WHERE id = ?';
+  con.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Erro ao finalizar a tarefa:', err);
+      res.status(500).json({ success: false, message: 'Erro ao finalizar a tarefa.' });
+    } else {
+      res.json({ success: true, message: 'Tarefa finalizada com sucesso!' });
+    }
+  });
+});
+
+// Rota para buscar todas as tarefas concluídas
+app.get('/todos/completed', (req, res) => {
+  const sql = 'SELECT * FROM todo_list WHERE is_completed = TRUE';
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.error('Erro ao buscar as tarefas concluídas:', err);
+      res.status(500).json({ success: false, message: 'Erro ao buscar as tarefas concluídas.' });
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+
+// Rota para buscar todos os atendimentos
+app.get('/auth/atendimentos', (req, res) => {
+  const sql = `
+    SELECT 
+      atendimentos.id,
+      alunos.nome AS nome_aluno,
+      atendimentos.curso,
+      atendimentos.data_atendimento,
+      atendimentos.descricao,
+      atendimentos.telefone_paciente,
+      atendimentos.nome_paciente,
+      atendimentos.link_reuniao
+    FROM 
+      atendimentos
+    LEFT JOIN 
+      alunos ON atendimentos.aluno_id = alunos.id
+  `;
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.error('Erro ao buscar os atendimentos:', err);
+      res.status(500).json({ success: false, message: 'Erro ao buscar os atendimentos.' });
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+// Rota para criar um novo atendimento
+app.post('/auth/atendimentos', (req, res) => {
+  const { aluno_id, curso, data_atendimento, descricao, telefone_paciente, nome_paciente, link_reuniao } = req.body;
+  const sql = `
+    INSERT INTO atendimentos (aluno_id, curso, data_atendimento, descricao, telefone_paciente, nome_paciente, link_reuniao)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `;
+  con.query(sql, [aluno_id, curso, data_atendimento, descricao, telefone_paciente, nome_paciente, link_reuniao], (err, result) => {
+    if (err) {
+      console.error('Erro ao criar o atendimento:', err);
+      res.status(500).json({ success: false, message: 'Erro ao criar o atendimento.' });
+    } else {
+      res.status(201).json({ success: true, message: 'Atendimento criado com sucesso!' });
+    }
+  });
+});
+
+// Rota para buscar todos os alunos
+app.get('/auth/alunos', (req, res) => {
+  const sql = 'SELECT id, nome FROM alunos';
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.error('Erro ao buscar os alunos:', err);
+      res.status(500).json({ success: false, message: 'Erro ao buscar os alunos.' });
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+// Rota para criar uma nova sugestão
+app.post('/auth/sugestoes', async (req, res) => {
+  try {
+    const { nome, sugestao } = req.body;
+    // Consultar o ID do aluno com base no nome
+    const alunoQuery = 'SELECT id FROM Alunos WHERE nome = ?';
+    con.query(alunoQuery, [nome], (err, result) => {
+      if (err || result.length === 0) {
+        console.error('Erro ao buscar o aluno:', err);
+        return res.status(404).json({ success: false, message: 'Aluno não encontrado.' });
+      }
+      const alunoId = result[0].id;
+      const sugestaoQuery = 'INSERT INTO Sugestoes (aluno_id, sugestao) VALUES (?, ?)';
+      con.query(sugestaoQuery, [alunoId, sugestao], (err, result) => {
+        if (err) {
+          console.error('Erro ao enviar a sugestão:', err);
+          return res.status(500).json({ success: false, message: 'Erro ao enviar a sugestão.' });
+        }
+        res.status(201).json({ success: true, message: 'Sugestão enviada com sucesso!' });
+      });
+    });
+  } catch (error) {
+    console.error('Erro ao enviar a sugestão:', error);
+    res.status(500).json({ success: false, message: 'Erro ao enviar a sugestão.' });
+  }
+});
+
+// Rota para buscar todas as sugestões
+app.get('/auth/sugestoes', async (req, res) => {
+  try {
+    const sql = `
+      SELECT 
+        s.id,
+        a.nome AS nome_aluno,
+        s.sugestao,
+        s.data_criacao
+      FROM 
+        Sugestoes s
+      JOIN 
+        Alunos a ON s.aluno_id = a.id
+      ORDER BY 
+        s.data_criacao DESC
+    `;
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.error('Erro ao buscar as sugestões:', err);
+        return res.status(500).json({ success: false, message: 'Erro ao buscar as sugestões.' });
+      }
+      res.json(result);
+    });
+  } catch (error) {
+    console.error('Erro ao buscar as sugestões:', error);
+    res.status(500).json({ success: false, message: 'Erro ao buscar as sugestões.' });
+  }
+});
+
 
 app.use('/auth', adminRouter);
 

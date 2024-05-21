@@ -15,6 +15,13 @@ import Nav from '../components/nav/Nav.jsx'
 import LeftBar from '../components/leftbar/LeftBar.jsx'
 import RightBar from '../components/rigthbar/RightBar.jsx'
 import Departamentos from '../pages/departamentos/Departamentos.jsx'
+import TodoList from '../components/todolist/TodoList.jsx'
+import Sugestoes from '../components/sugestoes/Sugestoes.jsx'
+import AtendimentoGeral from '../components/atendimentosgeral/AtendimentoGeral.jsx'
+
+
+
+
 
 
 export default function LayOut() {
@@ -67,6 +74,18 @@ export default function LayOut() {
         {
           path: '/Departamentos',
           element: <Departamentos/>
+        },
+        {
+          path: '/TodoList',
+          element: <TodoList/>
+        },
+        {
+          path: '/Sugestoes',
+          element: <Sugestoes/>
+        },
+        {
+          path: '/AtendimentoGeral',
+          element: <AtendimentoGeral/>
         }
       ]
     },

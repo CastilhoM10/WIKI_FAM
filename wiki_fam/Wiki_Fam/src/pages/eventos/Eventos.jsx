@@ -1,8 +1,8 @@
 import './eventos.css'
-import testeimg from '../../assets/img/feed1.jpg'
-import testeimg2 from '../../assets/img/feed5.jpeg'
-import testeimg3 from '../../assets/img/feed3.jpg'
-import testeimg4 from '../../assets/img/feed8.jpg'
+import testeimg from '../../assets/img/eventos/img1.jpg'
+import testeimg2 from '../../assets/img/eventos/trotesolidario.png'
+import testeimg3 from '../../assets/img/eventos/img3.jpg'
+import testeimg4 from '../../assets/img/eventos/img4.jpg'
 
 export default function Eventos() {
   return (

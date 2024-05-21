@@ -16,18 +16,24 @@ body{
     --color-primary: #5474ff;
     --color-secundary: #ffd518;
     --text-color: #000;
+    --text-color-input: #c3c3c3;
     --color-bg: rgb(236, 236, 236);
     --color-card: #fff;
     --color-soft: #aaaaaa;
+    --color-forms: #f2f2f2;
     --color-boder: lightgray;
     --color-red: red;
     --border-sala: #000;
+    --text-color-input: #949494;
 }
 .darkmood{
     --text-color: white;
     --color-bg: black;
     --color-card: #111111;
     --border-sala: #fff;
+    --text-color-input: #434343;
+    --color-forms: #222222;
+    --text-color-input: #676767;
 }
 .container{
     max-width: 991px;

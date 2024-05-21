@@ -73,6 +73,27 @@ export default function LeftBar() {
               <h4>Mapa Fam</h4>
             </div>
           </Link>
+
+          <Link to='/TodoList'> 
+            <div className="item">
+            <i className='bi bi-calendar2-plus-fill'></i>
+              <h4>Lista de tarefas</h4>
+            </div>
+          </Link>
+
+          <Link to='/Sugestoes'> 
+            <div className="item">
+            <i className='bi bi-patch-question-fill'></i>
+              <h4>Sugestões</h4>
+            </div>
+          </Link>
+
+          <Link to='/AtendimentoGeral'> 
+            <div className="item">
+            <i className='bi bi-calendar-check-fill'></i>
+              <h4>Atendimento</h4>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

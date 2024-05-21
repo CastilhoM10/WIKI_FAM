@@ -1,4 +1,4 @@
-// AdminRoute.js
+
 
 import express from "express";
 import con from "../utils/db.js";
@@ -139,6 +139,8 @@ router.get('/departamentos', (req, res) => {
       res.json(result);
   });
 });
+
+
 
 router.post("/login", (req, res) => {
   const { email, ra, password } = req.body;

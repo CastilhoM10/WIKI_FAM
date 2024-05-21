@@ -92,7 +92,7 @@ export default function Departamentos() {
                             <label htmlFor="message">Mensagem:</label>
                             <textarea id="message" name="message" value={formData.message} onChange={handleChange}></textarea>
                         </div>
-                        <button type="submit">Enviar</button>
+                        <button className='btn-enviar' type="submit">Enviar</button>
                     </form>
                     {formSubmitted && <p>Mensagem enviada com sucesso!</p>}
                 </div>
