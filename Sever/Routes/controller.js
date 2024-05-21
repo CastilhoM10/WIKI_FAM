@@ -1,4 +1,4 @@
-// controller.js
+
 
 import con from "../utils/db.js";
 
