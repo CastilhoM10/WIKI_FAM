@@ -14,8 +14,8 @@ export default function UserProfile() {
         <div className="profile-info">
             <img src={profilefoto} alt="" />
             <div className="user-name">
-                <h3>Nome do usuario</h3>
-                <h5>username</h5>
+                <h3>Matheus Castilho</h3>
+                <h5>20222521</h5>
             </div>
             <div className="profile-button">
                 <Link to='/chatbox/id'>

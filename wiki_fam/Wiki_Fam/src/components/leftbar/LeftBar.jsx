@@ -15,7 +15,7 @@ export default function LeftBar() {
           <Link to='/profile/id'>
             <div className="user">
               <img src={profilefoto} alt="" />
-              <h4>Nome do usuario</h4>
+              <h4>Matheus Castilho</h4>
             </div>
           </Link>
 

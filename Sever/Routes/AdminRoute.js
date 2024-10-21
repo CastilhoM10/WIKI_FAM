@@ -141,7 +141,7 @@ router.get('/departamentos', (req, res) => {
 });
 
 
-
+//rota para autenticação de login
 router.post("/login", (req, res) => {
   const { email, ra, password } = req.body;
 

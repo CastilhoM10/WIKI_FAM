@@ -12,9 +12,10 @@ app.use(cors({
 app.use(express.json());
 
 // Rota para criação de um novo post
+
 app.post('/auth/posts', async (req, res) => {
   try {
-    const { content } = req.body; // Alterado para pegar 'content' do corpo da solicitação
+    const { content } = req.body; // pegar 'content' do corpo da solicitação
     // Lógica para inserir o novo post na tabela de posts
     await con.query('INSERT INTO posts (content) VALUES (?)', [content]); // Alterado para inserir 'content' na tabela
     res.status(201).json({ success: true, message: 'Post criado com sucesso!' });
@@ -23,6 +24,8 @@ app.post('/auth/posts', async (req, res) => {
     res.status(500).json({ success: false, message: 'Erro ao criar o post.' });
   }
 });
+
+
 
 // Rota para criar um novo comentário
 app.post('/auth/comments', async (req, res) => {

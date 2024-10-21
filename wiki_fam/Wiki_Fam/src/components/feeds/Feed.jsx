@@ -24,8 +24,8 @@ export default function Feed() {
                 <div className="user">
                     <img src={fotofeed} alt="" />
                     <div>
-                    <h5>nome do usuario</h5>
-                    <small>tempo do post</small>
+                    <h5>Gabriela</h5>
+                    <small>10/04/2024</small>
                     </div>
                 </div>
             </Link>
@@ -64,8 +64,8 @@ export default function Feed() {
                 <div className="user">
                     <img src={fotofeed} alt="" />
                     <div>
-                    <h5>nome do usuario</h5>
-                    <small>tempo do post</small>
+                    <h5>Julia</h5>
+                    <small>09/04/2024</small>
                     </div>
                 </div>
             </Link>
